@@ -10,10 +10,12 @@ import UIKit
 
 struct Album: Decodable {
     let title: String
+    let id: Int
     let coverPicture: String
     
     enum CodingKeys: String, CodingKey {
         case title
+        case id
         case coverPicture = "cover_medium"
     }
 }

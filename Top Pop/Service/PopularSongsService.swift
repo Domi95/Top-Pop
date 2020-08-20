@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SongsAPIService {
+class PopularSongsService {
     
     private let popularSongsURL = "https://api.deezer.com/chart"
     
@@ -18,7 +18,7 @@ class SongsAPIService {
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: url) { (data, response, error) in
             if error != nil {
-                print("error while fetching data")
+                print("Error while fetching data.")
                 return
             }
             guard let safeData = data else { return }
@@ -36,7 +36,7 @@ class SongsAPIService {
             let decodedData = try decoder.decode(TracksData.self, from: tracksData)
             return decodedData
         } catch {
-            print("error while parsing")
+            print("Error while parsing.")
             return nil
         }
     }

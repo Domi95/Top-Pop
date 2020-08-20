@@ -31,9 +31,9 @@ class PopularSongsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setup(card: Card) {
+    func setup(card: CellData) {
         popularityLabel.style(size: 17, text: "\(card.popularity)")
-        artistNameLabel.style(size: 14, text: card.singer, color: .systemGray)
+        artistNameLabel.style(size: 14, text: card.singer, textColor: .systemGray)
         songNameLabel.style(size: 18, text: card.songName)
         durationLabel.style(size: 14, text: Utils.parseSongDuration(seconds: card.duration))
         singerImageView.image = Utils.getImage(imageString: card.artistSmallPicture)

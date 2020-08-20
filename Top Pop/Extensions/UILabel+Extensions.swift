@@ -10,9 +10,9 @@ import UIKit
 
 extension UILabel {
     
-    func style(size: CGFloat = 20, text: String, color: UIColor = .white) {
+    func style(size: CGFloat = 20, text: String = "", textColor: UIColor = .white) {
         self.font = .boldSystemFont(ofSize: size)
-        self.textColor = color
+        self.textColor = textColor
         self.text = text
         self.textAlignment = .center
         self.clipsToBounds = true

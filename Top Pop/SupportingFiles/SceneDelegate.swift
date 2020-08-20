@@ -11,17 +11,17 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var navigationController: UINavigationController?
+    var coordinator: Coordinator?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let popularSongsViewController = PopularSongsViewController()
-        navigationController = UINavigationController(rootViewController: popularSongsViewController)
+        
+        coordinator = Coordinator(window: window!)
+        coordinator?.setRootViewController()
         setUpNavigationBar()
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -53,16 +53,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     private func setUpNavigationBar() {
-        navigationController?.navigationBar.isHidden = false
-        navigationController?.navigationBar.barTintColor = .black
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.topItem?.title = Constants.appName
-        navigationController?.navigationBar.titleTextAttributes = [
+        UINavigationBar.appearance().isHidden = false
+        UINavigationBar.appearance().barTintColor = .black
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().topItem?.title = Constants.appName
+        UINavigationBar.appearance().titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: UIFont(name: "Arial-BoldItalicMT", size: 20)!
         ]
     }
-    
 
 }
 

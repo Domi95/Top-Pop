@@ -8,11 +8,15 @@
 
 import UIKit
 
-struct Card {
+struct CellData: Comparable  {
+    
     let popularity: Int
     let songName: String
     let singer: String
     let duration: Int
     let artistSmallPicture: String
 
+    static func < (lhs: CellData, rhs: CellData) -> Bool {
+        return lhs.duration < rhs.duration
+    }
 }

@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		593CA1C5C48719E338A38302 /* Pods_Top_Pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72761714213AA8E9886607F1 /* Pods_Top_Pop.framework */; };
 		C569D18224ED974A00F7F2A1 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C569D18124ED974A00F7F2A1 /* UIView+Extensions.swift */; };
 		C569D18524ED9DEF00F7F2A1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C569D18424ED9DEF00F7F2A1 /* Utils.swift */; };
 		C569D18724EDA11800F7F2A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C569D18624EDA11800F7F2A1 /* Constants.swift */; };
@@ -15,7 +16,7 @@
 		C5791D3224ECFEDD007BCCF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5791D3124ECFEDD007BCCF9 /* Assets.xcassets */; };
 		C5791D3D24ED0027007BCCF9 /* PopularSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D3C24ED0027007BCCF9 /* PopularSongsViewController.swift */; };
 		C5791D4024ED0047007BCCF9 /* PopularSongsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D3F24ED0047007BCCF9 /* PopularSongsView.swift */; };
-		C5791D4324ED0AB1007BCCF9 /* SongsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D4224ED0AB1007BCCF9 /* SongsAPIService.swift */; };
+		C5791D4324ED0AB1007BCCF9 /* PopularSongsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D4224ED0AB1007BCCF9 /* PopularSongsService.swift */; };
 		C5791D4624ED0CE0007BCCF9 /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D4524ED0CE0007BCCF9 /* Tracks.swift */; };
 		C5791D4924ED0D0D007BCCF9 /* SongData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D4824ED0D0D007BCCF9 /* SongData.swift */; };
 		C5791D4B24ED0D91007BCCF9 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D4A24ED0D91007BCCF9 /* Artist.swift */; };
@@ -23,14 +24,24 @@
 		C5791D4F24ED20E7007BCCF9 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D4E24ED20E7007BCCF9 /* Album.swift */; };
 		C5791D5324ED2909007BCCF9 /* PopularSongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D5124ED2909007BCCF9 /* PopularSongsTableViewCell.swift */; };
 		C5791D5424ED2909007BCCF9 /* PopularSongsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5791D5224ED2909007BCCF9 /* PopularSongsTableViewCell.xib */; };
-		C5791D5724ED3715007BCCF9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D5624ED3715007BCCF9 /* Card.swift */; };
+		C5791D5724ED3715007BCCF9 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D5624ED3715007BCCF9 /* CellData.swift */; };
 		C5791D5924ED3CF9007BCCF9 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D5824ED3CF9007BCCF9 /* UILabel+Extensions.swift */; };
 		C5791D5C24ED48B3007BCCF9 /* UIImageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D5B24ED48B3007BCCF9 /* UIImageView + Extensions.swift */; };
 		C5791D5E24ED521A007BCCF9 /* SongDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D5D24ED521A007BCCF9 /* SongDetailsViewController.swift */; };
 		C5791D6124ED528F007BCCF9 /* SongDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5791D6024ED528F007BCCF9 /* SongDetailsView.swift */; };
+		C5CB1CE824EE9FE90044836C /* SongDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CB1CE724EE9FE90044836C /* SongDetailsService.swift */; };
+		C5CB1CEC24EEA3B00044836C /* AlbumData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CB1CEB24EEA3B00044836C /* AlbumData.swift */; };
+		C5CB1CEE24EEA4040044836C /* AlbumTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CB1CED24EEA4040044836C /* AlbumTracks.swift */; };
+		C5CB1CF024EEA5300044836C /* AlbumSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CB1CEF24EEA5300044836C /* AlbumSong.swift */; };
+		C5EE172524EEF8DE003D71A3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE172424EEF8DE003D71A3 /* Coordinator.swift */; };
+		C5F32FA124EE57DB00727056 /* UITableView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F32FA024EE57DB00727056 /* UITableView + Extensions.swift */; };
+		C5F32FA324EE593E00727056 /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F32FA224EE593E00727056 /* UIButton + Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72761714213AA8E9886607F1 /* Pods_Top_Pop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Top_Pop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B8DEF1A6E62DE418121973B /* Pods-Top Pop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Top Pop.debug.xcconfig"; path = "Target Support Files/Pods-Top Pop/Pods-Top Pop.debug.xcconfig"; sourceTree = "<group>"; };
+		AE0507556E770D509AB54108 /* Pods-Top Pop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Top Pop.release.xcconfig"; path = "Target Support Files/Pods-Top Pop/Pods-Top Pop.release.xcconfig"; sourceTree = "<group>"; };
 		C569D18124ED974A00F7F2A1 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		C569D18424ED9DEF00F7F2A1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C569D18624EDA11800F7F2A1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -41,7 +52,7 @@
 		C5791D3624ECFEDD007BCCF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5791D3C24ED0027007BCCF9 /* PopularSongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularSongsViewController.swift; sourceTree = "<group>"; };
 		C5791D3F24ED0047007BCCF9 /* PopularSongsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularSongsView.swift; sourceTree = "<group>"; };
-		C5791D4224ED0AB1007BCCF9 /* SongsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsAPIService.swift; sourceTree = "<group>"; };
+		C5791D4224ED0AB1007BCCF9 /* PopularSongsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularSongsService.swift; sourceTree = "<group>"; };
 		C5791D4524ED0CE0007BCCF9 /* Tracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
 		C5791D4824ED0D0D007BCCF9 /* SongData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongData.swift; sourceTree = "<group>"; };
 		C5791D4A24ED0D91007BCCF9 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
@@ -49,11 +60,18 @@
 		C5791D4E24ED20E7007BCCF9 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		C5791D5124ED2909007BCCF9 /* PopularSongsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularSongsTableViewCell.swift; sourceTree = "<group>"; };
 		C5791D5224ED2909007BCCF9 /* PopularSongsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularSongsTableViewCell.xib; sourceTree = "<group>"; };
-		C5791D5624ED3715007BCCF9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		C5791D5624ED3715007BCCF9 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		C5791D5824ED3CF9007BCCF9 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		C5791D5B24ED48B3007BCCF9 /* UIImageView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extensions.swift"; sourceTree = "<group>"; };
 		C5791D5D24ED521A007BCCF9 /* SongDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailsViewController.swift; sourceTree = "<group>"; };
 		C5791D6024ED528F007BCCF9 /* SongDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailsView.swift; sourceTree = "<group>"; };
+		C5CB1CE724EE9FE90044836C /* SongDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailsService.swift; sourceTree = "<group>"; };
+		C5CB1CEB24EEA3B00044836C /* AlbumData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumData.swift; sourceTree = "<group>"; };
+		C5CB1CED24EEA4040044836C /* AlbumTracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracks.swift; sourceTree = "<group>"; };
+		C5CB1CEF24EEA5300044836C /* AlbumSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSong.swift; sourceTree = "<group>"; };
+		C5EE172424EEF8DE003D71A3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C5F32FA024EE57DB00727056 /* UITableView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Extensions.swift"; sourceTree = "<group>"; };
+		C5F32FA224EE593E00727056 /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +79,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				593CA1C5C48719E338A38302 /* Pods_Top_Pop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13760F9F7EF0DDE25E818B6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72761714213AA8E9886607F1 /* Pods_Top_Pop.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1C25C16A86D874703A372898 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B8DEF1A6E62DE418121973B /* Pods-Top Pop.debug.xcconfig */,
+				AE0507556E770D509AB54108 /* Pods-Top Pop.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C569D18324ED9DDB00F7F2A1 /* Globals */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +127,8 @@
 			children = (
 				C5791D2724ECFEDB007BCCF9 /* Top Pop */,
 				C5791D2624ECFEDB007BCCF9 /* Products */,
+				1C25C16A86D874703A372898 /* Pods */,
+				13760F9F7EF0DDE25E818B6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,7 +167,7 @@
 		C5791D4124ED004E007BCCF9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C5791D5024ED28CA007BCCF9 /* SongList */,
+				C5791D5024ED28CA007BCCF9 /* PopularSongs */,
 				C5791D6224ED5295007BCCF9 /* SongDetails */,
 			);
 			path = View;
@@ -138,7 +176,9 @@
 		C5791D4424ED0ACA007BCCF9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				C5791D4224ED0AB1007BCCF9 /* SongsAPIService.swift */,
+				C5791D4224ED0AB1007BCCF9 /* PopularSongsService.swift */,
+				C5CB1CE724EE9FE90044836C /* SongDetailsService.swift */,
+				C5EE172424EEF8DE003D71A3 /* Coordinator.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -146,24 +186,20 @@
 		C5791D4724ED0CE6007BCCF9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C5791D4C24ED1B6F007BCCF9 /* TracksData.swift */,
-				C5791D4524ED0CE0007BCCF9 /* Tracks.swift */,
-				C5791D4824ED0D0D007BCCF9 /* SongData.swift */,
-				C5791D4A24ED0D91007BCCF9 /* Artist.swift */,
-				C5791D4E24ED20E7007BCCF9 /* Album.swift */,
-				C5791D5624ED3715007BCCF9 /* Card.swift */,
+				C5CB1CE924EEA2D90044836C /* PopularSongs */,
+				C5CB1CEA24EEA3340044836C /* SongDetails */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		C5791D5024ED28CA007BCCF9 /* SongList */ = {
+		C5791D5024ED28CA007BCCF9 /* PopularSongs */ = {
 			isa = PBXGroup;
 			children = (
 				C5791D3F24ED0047007BCCF9 /* PopularSongsView.swift */,
 				C5791D5124ED2909007BCCF9 /* PopularSongsTableViewCell.swift */,
 				C5791D5224ED2909007BCCF9 /* PopularSongsTableViewCell.xib */,
 			);
-			path = SongList;
+			path = PopularSongs;
 			sourceTree = "<group>";
 		};
 		C5791D5524ED2A87007BCCF9 /* PopularSongs */ = {
@@ -180,6 +216,8 @@
 				C5791D5824ED3CF9007BCCF9 /* UILabel+Extensions.swift */,
 				C5791D5B24ED48B3007BCCF9 /* UIImageView + Extensions.swift */,
 				C569D18124ED974A00F7F2A1 /* UIView+Extensions.swift */,
+				C5F32FA024EE57DB00727056 /* UITableView + Extensions.swift */,
+				C5F32FA224EE593E00727056 /* UIButton + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -200,6 +238,29 @@
 			path = SongDetails;
 			sourceTree = "<group>";
 		};
+		C5CB1CE924EEA2D90044836C /* PopularSongs */ = {
+			isa = PBXGroup;
+			children = (
+				C5791D4C24ED1B6F007BCCF9 /* TracksData.swift */,
+				C5791D4524ED0CE0007BCCF9 /* Tracks.swift */,
+				C5791D4824ED0D0D007BCCF9 /* SongData.swift */,
+				C5791D4A24ED0D91007BCCF9 /* Artist.swift */,
+				C5791D4E24ED20E7007BCCF9 /* Album.swift */,
+				C5791D5624ED3715007BCCF9 /* CellData.swift */,
+			);
+			path = PopularSongs;
+			sourceTree = "<group>";
+		};
+		C5CB1CEA24EEA3340044836C /* SongDetails */ = {
+			isa = PBXGroup;
+			children = (
+				C5CB1CEB24EEA3B00044836C /* AlbumData.swift */,
+				C5CB1CED24EEA4040044836C /* AlbumTracks.swift */,
+				C5CB1CEF24EEA5300044836C /* AlbumSong.swift */,
+			);
+			path = SongDetails;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,9 +268,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C5791D3924ECFEDD007BCCF9 /* Build configuration list for PBXNativeTarget "Top Pop" */;
 			buildPhases = (
+				41D2D75595941FDF54BA99BA /* [CP] Check Pods Manifest.lock */,
 				C5791D2124ECFEDB007BCCF9 /* Sources */,
 				C5791D2224ECFEDB007BCCF9 /* Frameworks */,
 				C5791D2324ECFEDB007BCCF9 /* Resources */,
+				E3EB5BD69617C550B54EFB7D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,26 +328,75 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		41D2D75595941FDF54BA99BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Top Pop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3EB5BD69617C550B54EFB7D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Top Pop/Pods-Top Pop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Top Pop/Pods-Top Pop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Top Pop/Pods-Top Pop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C5791D2124ECFEDB007BCCF9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C5791D2924ECFEDB007BCCF9 /* AppDelegate.swift in Sources */,
+				C5CB1CF024EEA5300044836C /* AlbumSong.swift in Sources */,
+				C5EE172524EEF8DE003D71A3 /* Coordinator.swift in Sources */,
 				C5791D3D24ED0027007BCCF9 /* PopularSongsViewController.swift in Sources */,
 				C5791D4B24ED0D91007BCCF9 /* Artist.swift in Sources */,
-				C5791D5724ED3715007BCCF9 /* Card.swift in Sources */,
+				C5791D5724ED3715007BCCF9 /* CellData.swift in Sources */,
+				C5CB1CE824EE9FE90044836C /* SongDetailsService.swift in Sources */,
 				C5791D2B24ECFEDB007BCCF9 /* SceneDelegate.swift in Sources */,
 				C5791D5E24ED521A007BCCF9 /* SongDetailsViewController.swift in Sources */,
 				C5791D5924ED3CF9007BCCF9 /* UILabel+Extensions.swift in Sources */,
 				C5791D4024ED0047007BCCF9 /* PopularSongsView.swift in Sources */,
 				C5791D5324ED2909007BCCF9 /* PopularSongsTableViewCell.swift in Sources */,
-				C5791D4324ED0AB1007BCCF9 /* SongsAPIService.swift in Sources */,
+				C5791D4324ED0AB1007BCCF9 /* PopularSongsService.swift in Sources */,
+				C5CB1CEC24EEA3B00044836C /* AlbumData.swift in Sources */,
 				C5791D4624ED0CE0007BCCF9 /* Tracks.swift in Sources */,
+				C5CB1CEE24EEA4040044836C /* AlbumTracks.swift in Sources */,
 				C569D18224ED974A00F7F2A1 /* UIView+Extensions.swift in Sources */,
 				C5791D6124ED528F007BCCF9 /* SongDetailsView.swift in Sources */,
+				C5F32FA124EE57DB00727056 /* UITableView + Extensions.swift in Sources */,
 				C5791D4F24ED20E7007BCCF9 /* Album.swift in Sources */,
 				C569D18724EDA11800F7F2A1 /* Constants.swift in Sources */,
+				C5F32FA324EE593E00727056 /* UIButton + Extensions.swift in Sources */,
 				C5791D4924ED0D0D007BCCF9 /* SongData.swift in Sources */,
 				C5791D4D24ED1B6F007BCCF9 /* TracksData.swift in Sources */,
 				C569D18524ED9DEF00F7F2A1 /* Utils.swift in Sources */,
@@ -411,6 +523,7 @@
 		};
 		C5791D3A24ECFEDD007BCCF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B8DEF1A6E62DE418121973B /* Pods-Top Pop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -428,6 +541,7 @@
 		};
 		C5791D3B24ECFEDD007BCCF9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE0507556E770D509AB54108 /* Pods-Top Pop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

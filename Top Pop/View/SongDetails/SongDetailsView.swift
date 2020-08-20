@@ -14,61 +14,80 @@ class SongDetailsView: UIView {
     private let artistNameLabel = UILabel()
     private let albumNameLabel = UILabel()
     private let albumImageView = UIImageView()
-    private let singerImageView = UIImageView()
+    let albumSongsLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .black
+        setUpElements()
+        setUpConstraints()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    func setUpElements(song: SongData) {
-        addSubview(albumImageView)
-        albumImageView.styleView(cornerRadius: 0)
+    func setSong(with song: SongData) {
+        songNameLabel.text = song.title
+        artistNameLabel.text = song.artist.name
         albumImageView.image = Utils.getImage(imageString: song.album.coverPicture)
-        
-        addSubview(albumNameLabel)
-        albumNameLabel.style(size: 16, text: song.album.title, color: .white)
-        
-        addSubview(singerImageView)
-        singerImageView.styleView(cornerRadius: 0)
-        singerImageView.image = Utils.getImage(imageString: song.artist.picture)
-        
-        addSubview(songNameLabel)
-        songNameLabel.style(size:20, text: song.title, color: .white)
-        
-        addSubview(artistNameLabel)
-        artistNameLabel.style(size:18, text: song.artist.name, color: .gray)
+        albumNameLabel.text = song.album.title
         
     }
     
-    func setUpConstraints() {
-        albumImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive = true
-        albumImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        albumImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        albumImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+    func setAlbumSongsLabel(_ albumSongs: [AlbumSong]) {
+        var songsTitles = ""
+        for song in albumSongs {
+            songsTitles = songsTitles + song.title
+        }
+        DispatchQueue.main.async {
+            self.albumSongsLabel.text = songsTitles
+        }
+    }
+    
+    private func setUpElements() {
+        addSubview(albumImageView)
+        albumImageView.styleView(cornerRadius: 0)
+        
+        addSubview(albumNameLabel)
+        albumNameLabel.style(size: 16, textColor: .white)
+        
+        addSubview(songNameLabel)
+        songNameLabel.style(size:20, textColor: .white)
+        
+        addSubview(artistNameLabel)
+        artistNameLabel.style(size:18, textColor: .gray)
+        
+        addSubview(albumSongsLabel)
+        albumSongsLabel.style(size: 16, textColor: .white)
+    }
+    
+    private func setUpConstraints() {
+        let margin: CGFloat = 20
+        
+        songNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        songNameLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        songNameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        songNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        albumImageView.topAnchor.constraint(equalTo: songNameLabel.bottomAnchor).isActive = true
+        albumImageView.widthAnchor.constraint(equalToConstant: 230).isActive = true
+        albumImageView.heightAnchor.constraint(equalToConstant: 230).isActive = true
+        albumImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         albumNameLabel.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 5).isActive = true
         albumNameLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        albumNameLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        albumNameLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
         albumNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         
-        singerImageView.topAnchor.constraint(equalTo: albumNameLabel.bottomAnchor, constant: 35).isActive = true
-        singerImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        singerImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        singerImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        
-        songNameLabel.topAnchor.constraint(equalTo: singerImageView.topAnchor).isActive = true
-        songNameLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        songNameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        songNameLabel.leftAnchor.constraint(equalTo: self.singerImageView.rightAnchor, constant: 10).isActive = true
-        
-        artistNameLabel.topAnchor.constraint(equalTo: songNameLabel.bottomAnchor, constant: 8).isActive = true
+        artistNameLabel.topAnchor.constraint(equalTo: albumNameLabel.bottomAnchor).isActive = true
         artistNameLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        artistNameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        artistNameLabel.leftAnchor.constraint(equalTo: self.singerImageView.rightAnchor, constant: 10).isActive = true
+        artistNameLabel.heightAnchor.constraint(equalToConstant: margin).isActive = true
+        artistNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        albumSongsLabel.topAnchor.constraint(equalTo: self.artistNameLabel.bottomAnchor, constant: margin).isActive = true
+        albumSongsLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -margin).isActive = true
+        albumSongsLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: margin).isActive = true
+        albumSongsLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -margin).isActive = true
     }
 }

@@ -11,22 +11,30 @@ class PopularSongsViewController: UIViewController {
     
     private var window: UIWindow?
     private let popularSongsView = PopularSongsView()
-    private let service = SongsAPIService()
-    private var cards: [Card] = []
-    private var songs: [SongData] = [] {
+    private let service = PopularSongsService()
+    private var cellData = [CellData]()
+    private var songs = [SongData]() {
         didSet {
-            fillCards()
+            fillCellData()
+            fillDefaultCellData()
         }
     }
+    private var currentlySelectedSort = "Normal"
+    private var defaultCellData: [CellData] = []
+    private var coordinator: Coordinator?
     
     override func viewDidLoad() {
         setUpPopularSongsView()
         getTracks()
         setUpPopularSongsTableView()
+        setUpButtonsAction()
+        setUpRefreshControl()
+        sortDataWhenClicked()
     }
     
-    init(){
+    init(coordinator: Coordinator) {
         super.init(nibName: nil, bundle: nil)
+        self.coordinator = coordinator
     }
     
     required init?(coder: NSCoder) {
@@ -39,14 +47,45 @@ class PopularSongsViewController: UIViewController {
         })
     }
     
-    private func fillCards() {
+    private func fillDefaultCellData() {
+        defaultCellData = cellData
+    }
+    
+    private func fillCellData() {
         for song in songs {
-            let card = Card(popularity: song.position, songName: song.title, singer: song.artist.name, duration: song.duration, artistSmallPicture: song.artist.picture)
-            self.cards.append(card)
+            let card = CellData(popularity: song.position, songName: song.title, singer: song.artist.name, duration: song.duration, artistSmallPicture: song.artist.picture)
+            self.cellData.append(card)
         }
+        
         DispatchQueue.main.async {
+            self.cellData = Utils.sortData(sortType: self.currentlySelectedSort, cards: self.cellData)
             self.popularSongsView.tableView.reloadData()
         }
+    }
+    
+    private func sortDataWhenClicked() {
+        popularSongsView.menu.selectionAction = { index, title in
+            self.currentlySelectedSort = title
+            self.cellData = Utils.sortData(sortType: title, cards: self.defaultCellData)
+            
+            DispatchQueue.main.async {
+                self.popularSongsView.tableView.reloadData()
+            }
+        }
+    }
+    
+    private func deleteCellData() {
+        songs = []
+        cellData = []
+        defaultCellData = []
+    }
+    
+    private func setUpRefreshControl() {
+        popularSongsView.refreshControl.addTarget(self, action: #selector(self.pullToRefreshTableView(_:)), for: .valueChanged)
+    }
+    
+    private func setUpButtonsAction(){
+        popularSongsView.dropDownButton.addTarget(self, action: #selector(dropDownButtonPressed), for: .touchUpInside)
     }
     
     private func setUpPopularSongsTableView() {
@@ -54,7 +93,7 @@ class PopularSongsViewController: UIViewController {
         popularSongsView.tableView.delegate = self
         popularSongsView.tableView.register(UINib(nibName: "PopularSongsTableViewCell", bundle: nil), forCellReuseIdentifier: PopularSongsTableViewCell.identifier)
     }
-
+    
     private func setUpPopularSongsView() {
         view.addSubview(popularSongsView)
         popularSongsView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,24 +102,34 @@ class PopularSongsViewController: UIViewController {
         popularSongsView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         popularSongsView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
+    
+    @objc func dropDownButtonPressed(){
+        popularSongsView.menu.show()
+    }
+    
+    @objc func pullToRefreshTableView(_ sender: AnyObject) {
+        self.deleteCellData()
+        self.getTracks()
+        self.popularSongsView.refreshControl.endRefreshing()
+    }
 }
 
 extension PopularSongsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let songDetailsViewController = SongDetailsViewController(song: songs[indexPath.row])
-        self.navigationController?.pushViewController(songDetailsViewController, animated: true)
+        coordinator?.pushDetailViewController(song: songs[indexPath.row])
+        
     }
 }
 
 extension PopularSongsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        cards.count
+        cellData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = popularSongsView.tableView.dequeueReusableCell(withIdentifier: PopularSongsTableViewCell.identifier, for: indexPath) as! PopularSongsTableViewCell
-        cell.setup(card: cards[indexPath.row])
+        cell.setup(card: cellData[indexPath.row])
         
         cell.selectionStyle = .none
         return cell

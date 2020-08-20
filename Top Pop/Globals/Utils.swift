@@ -28,4 +28,23 @@ class Utils {
         }
         return UIImage()
     }
+    
+    static func sortData(sortType: String, cards: [CellData]) -> [CellData] {
+        switch sortType {
+        case "Normal":
+            return cards
+            
+        case "ASC":
+            return cards.sorted()
+            
+        case "DESC":
+            let descSorted = cards.sorted(by: { (card0: CellData, card1: CellData) -> Bool in
+                return card0 > card1
+            })
+            return descSorted
+            
+        default:
+            return cards
+        }
+    }
 }
