@@ -37,6 +37,6 @@ class PopularSongsTableViewCell: UITableViewCell {
         songNameLabel.style(size: 18, text: card.songName)
         durationLabel.style(size: 14, text: Utils.parseSongDuration(seconds: card.duration))
         singerImageView.image = Utils.getImage(imageString: card.artistSmallPicture)
-        singerImageView.styleView()
+        singerImageView.styleView(cornerRadius: 10)
     }
 }

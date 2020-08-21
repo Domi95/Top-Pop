@@ -20,8 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         coordinator = Coordinator(window: window!)
         coordinator?.setRootViewController()
-        setUpNavigationBar()
-
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

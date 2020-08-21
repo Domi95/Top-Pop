@@ -12,15 +12,19 @@ class PopularSongsViewController: UIViewController {
     private var window: UIWindow?
     private let popularSongsView = PopularSongsView()
     private let service = PopularSongsService()
+    //cellData is data designed for tableView cell
     private var cellData = [CellData]()
+    //songs holds parsed data from API
     private var songs = [SongData]() {
         didSet {
             fillCellData()
             fillDefaultCellData()
+            fillTableView()
         }
     }
     private var currentlySelectedSort = "Normal"
-    private var defaultCellData: [CellData] = []
+    //defaultCellData holds data sorted as it is fetched from API
+    private var defaultCellData = [CellData]()
     private var coordinator: Coordinator?
     
     override func viewDidLoad() {
@@ -30,6 +34,7 @@ class PopularSongsViewController: UIViewController {
         setUpButtonsAction()
         setUpRefreshControl()
         sortDataWhenClicked()
+        setUpNavigationBar()
     }
     
     init(coordinator: Coordinator) {
@@ -39,6 +44,16 @@ class PopularSongsViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    private func setUpNavigationBar(){
+        self.navigationController?.navigationBar.barTintColor = .black
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.topItem?.title = "Top Pop"
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: "Arial-BoldItalicMT", size: 28)!
+        ]
     }
     
     private func getTracks() {
@@ -51,14 +66,17 @@ class PopularSongsViewController: UIViewController {
         defaultCellData = cellData
     }
     
+    //Called when data is fetched from API
     private func fillCellData() {
         for song in songs {
-            let card = CellData(popularity: song.position, songName: song.title, singer: song.artist.name, duration: song.duration, artistSmallPicture: song.artist.picture)
-            self.cellData.append(card)
+            let oneCellData = CellData(popularity: song.position, songName: song.title, singer: song.artist.name, duration: song.duration, artistSmallPicture: song.artist.picture)
+            self.cellData.append(oneCellData)
         }
-        
+    }
+    
+    private func fillTableView() {
         DispatchQueue.main.async {
-            self.cellData = Utils.sortData(sortType: self.currentlySelectedSort, cards: self.cellData)
+            self.cellData = Utils.sortData(sortType: self.currentlySelectedSort, cards: self.defaultCellData)
             self.popularSongsView.tableView.reloadData()
         }
     }
@@ -66,11 +84,7 @@ class PopularSongsViewController: UIViewController {
     private func sortDataWhenClicked() {
         popularSongsView.menu.selectionAction = { index, title in
             self.currentlySelectedSort = title
-            self.cellData = Utils.sortData(sortType: title, cards: self.defaultCellData)
-            
-            DispatchQueue.main.async {
-                self.popularSongsView.tableView.reloadData()
-            }
+            self.fillTableView()
         }
     }
     

@@ -13,7 +13,7 @@ extension UITableView {
     func setTableView(bgColor: UIColor = .black, rowHeight: CGFloat = 90) {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.separatorStyle = UITableViewCell.SeparatorStyle.none
-        self.backgroundColor = bgColor
         self.rowHeight = rowHeight
+        self.backgroundColor = bgColor
     }
 }

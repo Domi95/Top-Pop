@@ -15,10 +15,10 @@ class PopularSongsView: UIView {
     var refreshControl = UIRefreshControl()
     let dropDownButton = UIButton()
     let menu: DropDown = {
-           let menu = DropDown()
-           menu.dataSource = ["Normal", "ASC", "DESC"]
-           return menu
-       }()
+        let menu = DropDown()
+        menu.dataSource = ["Normal", "ASC", "DESC"]
+        return menu
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,7 +38,7 @@ class PopularSongsView: UIView {
         
         addSubview(dropDownButton)
         dropDownButton.style()
-        dropDownButton.setImage(UIImage(named: "dropDownMenuImage"), for: .normal)
+        dropDownButton.setImage(UIImage(named: "sortImage"), for: .normal)
         
         addSubview(menu)
         
@@ -54,9 +54,9 @@ class PopularSongsView: UIView {
         tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -margin).isActive = true
         
         dropDownButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
-        dropDownButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
-        dropDownButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
-        dropDownButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        dropDownButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -5).isActive = true
+        dropDownButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
+        dropDownButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         
         menu.anchorView = dropDownButton
     }
