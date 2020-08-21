@@ -38,7 +38,7 @@ class SongDetailsView: UIView {
     func setAlbumSongsLabel(_ albumSongs: [AlbumSong]) {
         var songsTitles = ""
         for song in albumSongs {
-            songsTitles = songsTitles + song.title
+            songsTitles = songsTitles + song.title + "\n"
         }
         DispatchQueue.main.async {
             self.albumSongsLabel.text = songsTitles
@@ -53,7 +53,7 @@ class SongDetailsView: UIView {
         albumNameLabel.style(size: 16, textColor: .white)
         
         addSubview(songNameLabel)
-        songNameLabel.style(size:20, textColor: .white)
+        songNameLabel.style(size:24, textColor: .white)
         
         addSubview(artistNameLabel)
         artistNameLabel.style(size:18, textColor: .gray)
@@ -67,7 +67,7 @@ class SongDetailsView: UIView {
         
         songNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         songNameLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        songNameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        songNameLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         songNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         albumImageView.topAnchor.constraint(equalTo: songNameLabel.bottomAnchor).isActive = true

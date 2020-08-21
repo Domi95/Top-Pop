@@ -53,7 +53,7 @@ class PopularSongsView: UIView {
         tableView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: margin).isActive = true
         tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -margin).isActive = true
         
-        dropDownButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
+        dropDownButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 2).isActive = true
         dropDownButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -5).isActive = true
         dropDownButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
         dropDownButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
