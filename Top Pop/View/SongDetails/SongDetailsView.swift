@@ -70,7 +70,7 @@ class SongDetailsView: UIView {
         songNameLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         songNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
-        albumImageView.topAnchor.constraint(equalTo: songNameLabel.bottomAnchor).isActive = true
+        albumImageView.topAnchor.constraint(equalTo: songNameLabel.bottomAnchor, constant: 10).isActive = true
         albumImageView.widthAnchor.constraint(equalToConstant: 230).isActive = true
         albumImageView.heightAnchor.constraint(equalToConstant: 230).isActive = true
         albumImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
